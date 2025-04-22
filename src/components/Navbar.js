@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable max-lines */
 import { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
@@ -32,13 +33,33 @@ const Navbars = () => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
 
-            const offsets = navItems.map(({ id }) => {
-                const el = document.getElementById(id);
-                if (!el) return { id, top: Infinity };
-                return { id, top: Math.abs(el.getBoundingClientRect().top) };
-            });
+            const viewportHeight = window.innerHeight;
+            const scrollPosition = window.scrollY + viewportHeight / 2; // Track middle of viewport
 
-            const closestSection = offsets.reduce((prev, curr) => (prev.top < curr.top ? prev : curr));
+            let closestSection = { id: 'home', distance: Infinity };
+
+            navItems.forEach(({ id }) => {
+                const section = document.getElementById(id);
+                if (!section) return;
+
+                const { offsetTop, offsetHeight } = section;
+                const sectionBottom = offsetTop + offsetHeight;
+
+                // Check if middle of viewport is within section bounds
+                if (scrollPosition >= offsetTop && scrollPosition <= sectionBottom) {
+                    closestSection = { id, distance: 0 };
+                    return;
+                }
+
+                // Calculate distance to section edges
+                const distanceToTop = Math.abs(scrollPosition - offsetTop);
+                const distanceToBottom = Math.abs(scrollPosition - sectionBottom);
+                const minDistance = Math.min(distanceToTop, distanceToBottom);
+
+                if (minDistance < closestSection.distance) {
+                    closestSection = { id, distance: minDistance };
+                }
+            });
 
             setActiveSection(closestSection.id);
         };
@@ -46,11 +67,9 @@ const Navbars = () => {
         handleScroll(); // Initial check
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
+    }, [navItems]);
     return (
-        <Navbar expand="lg" fixed="top" className={`glass-navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`} onToggle={(expanded) => setIsMenuOpen(expanded)}>
+        <Navbar expand="lg" fixed="top" className={`glass-navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen && !isScrolled ? 'menu-open' : ''}`} onToggle={(expanded) => setIsMenuOpen(expanded)}>
             <Container>
                 <Navbar.Brand className="brand-logo" onClick={() => handleNavClick('home')}>
                     <img src={logo} alt="TechNova" className="logo-img" style={{ cursor: 'pointer' }} width="auto" height="40" loading="lazy" />

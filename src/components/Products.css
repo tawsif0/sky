@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.our-products-section {
+    font-family: 'Exo 2', sans-serif;
+    position: relative;
+    padding: 6rem 2rem;
+    overflow: hidden;
+    background: linear-gradient(145deg, #0f1117, #1a1d22);
+    background-size: 400% 400%;
+    animation: bgShift 30s ease infinite;
+    z-index: 1;
+}
+
+@keyframes bgShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.section-products-title-container {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-products-title {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #0ff, #fff, #0ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 10s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.section-products-subtitle {
+    font-size: 2.4rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.products-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    aspect-ratio: 3 / 3.5;
+}
+
+.products-card:hover {
+    box-shadow: 0 20px 60px rgba(0, 255, 255, 0.4);
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: contrast(105%) brightness(105%) saturate(110%);
+}
+
+.products-card:hover .card-img {
+    filter: contrast(130%) brightness(115%) saturate(130%);
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 15, 20, 0.658);
+    z-index: 1;
+    transition: background 0.4s ease;
+}
+
+.products-card:hover .card-overlay {
+    background: rgba(15, 15, 20, 0.3);
+}
+
+.product-name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    z-index: 2;
+    color: #fff;
+    transition: opacity 0.3s ease;
+}
+
+.products-card:hover .product-name {
+    opacity: 0;
+}
+
+.brand-logos {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 14px 20px;
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping to next line */
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.322); /* Slightly brighter */
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+    border-radius: 0 0 20px 20px;
+}
+
+.brand-logo-img {
+    height: 34px;
+    max-width: 100%;
+    padding: 4px 6px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transform-origin: center center;
+}
+
+/* Add a hover effect with scaling inside a container to avoid layout shift */
+.products-card:hover .brand-logo-img {
+    transform: scale(1.07);
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .products-card {
+        aspect-ratio: 3 / 3.8;
+    }
+
+    .product-name {
+        font-size: 1.6rem;
+    }
+
+    .section-products-subtitle {
+        font-size: 2rem;
+    }
+
+    .products-grid {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .products-card {
+        aspect-ratio: 3 / 4;
+    }
+
+    .product-name {
+        font-size: 1.4rem;
+        left: 15px;
+        top: 15px;
+    }
+
+    .section-products-title {
+        font-size: 2.6rem;
+    }
+
+    .section-products-subtitle {
+        font-size: 1.6rem;
+    }
+
+    .brand-logo-img {
+        height: 26px;
+    }
+
+    .brand-logos {
+        gap: 10px;
+        padding: 10px 12px;
+    }
+}

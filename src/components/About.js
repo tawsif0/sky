@@ -58,10 +58,11 @@ const AboutSection = () => {
                             <h2 className="section-title mb-4">About Us</h2>
 
                             <p className="lead-text mb-4">
-                                <span className="highlight"> SKY WAVE ENGINEERING </span>is a dynamic IT and engineering solutions provider headquartered in Bangladesh, dedicated to delivering
-                                cutting-edge technology services to corporate enterprises. Since our inception in 2024, we have bridged the gap between innovative engineering and practical IT
-                                solutions, empowering businesses to thrive in an increasingly digital world. Our expertise lies in designing, implementing, and managing robust IT infrastructures that
-                                align with the unique demands of Bangladesh’s corporate sector, including telecommunications, energy, manufacturing, and logistics.
+                                <span className="highlight"> SKY WAVE ENGINEERING </span>is a dynamic IT and engineering solutions provider headquartered in Bangladesh,{' '}
+                                <span className="highlight">dedicated</span> to delivering cutting-edge technology services to corporate enterprises. Since our inception in 2024, we have bridged the
+                                gap between innovative engineering and practical IT solutions, empowering businesses to thrive in an increasingly digital world. Our expertise lies in designing,
+                                implementing, and managing robust IT infrastructures that align with the unique demands of Bangladesh’s corporate sector, including telecommunications, energy,
+                                manufacturing, and logistics.
                             </p>
 
                             <div className="vm-wrapper">
