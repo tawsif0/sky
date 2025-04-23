@@ -11,19 +11,12 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Clientele from './components/Clientele';
 import Shows from './components/Show';
 import Footer from './components/Footer';
-
-const ErrorPage = () => {
-    return (
-        <div>
-            <h2>404 - Page Not Found</h2>
-            <p>The page you are looking for does not exist.</p>
-        </div>
-    );
-};
+import Error from './pages/Error';
 
 const App = () => {
     return (
         <>
+            <Navbars />
             <Routes>
                 {/* Route for the Home page */}
                 <Route
@@ -31,7 +24,6 @@ const App = () => {
                     element={
                         <>
                             <section id="home">
-                                <Navbars />
                                 <Hero />
                             </section>
                             <section id="about-us">
@@ -52,14 +44,14 @@ const App = () => {
                             <section id="showcase">
                                 <Shows />
                             </section>
-                            <Footer />
                         </>
                     }
                 />
 
                 {/* Fallback route for invalid URLs (404 Error Page) */}
-                <Route path="*" element={<ErrorPage />} />
+                <Route path="*" element={<Error />} />
             </Routes>
+            <Footer />
         </>
     );
 };

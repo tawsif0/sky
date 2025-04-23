@@ -1,7 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable max-lines */
-import { useState, useEffect } from 'react';
+// Navbars.jsx
+import React, { useEffect, useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/images/logo.png';
 import './Navbar.css';
@@ -9,7 +10,9 @@ import './Navbar.css';
 const Navbars = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState('home');
+    const [activeSection, setActiveSection] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const navItems = [
         { name: 'Home', id: 'home' },
@@ -22,57 +25,72 @@ const Navbars = () => {
     ];
 
     const handleNavClick = (id) => {
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(id); // Set active immediately
+
+        if (location.pathname === '/') {
+            const section = document.getElementById(id);
+            if (section) {
+                const offset = -80;
+                const y = section.getBoundingClientRect().top + window.pageYOffset + offset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+        } else {
+            navigate('/', { state: { scrollTo: id } });
         }
-        setActiveSection(id);
+
+        setIsMenuOpen(false);
     };
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
 
-            const viewportHeight = window.innerHeight;
-            const scrollPosition = window.scrollY + viewportHeight / 2; // Track middle of viewport
-
-            let closestSection = { id: 'home', distance: Infinity };
+            const middleY = window.scrollY + window.innerHeight / 2;
+            let closestId = '';
+            let minDist = Infinity;
 
             navItems.forEach(({ id }) => {
-                const section = document.getElementById(id);
-                if (!section) return;
-
-                const { offsetTop, offsetHeight } = section;
-                const sectionBottom = offsetTop + offsetHeight;
-
-                // Check if middle of viewport is within section bounds
-                if (scrollPosition >= offsetTop && scrollPosition <= sectionBottom) {
-                    closestSection = { id, distance: 0 };
-                    return;
-                }
-
-                // Calculate distance to section edges
-                const distanceToTop = Math.abs(scrollPosition - offsetTop);
-                const distanceToBottom = Math.abs(scrollPosition - sectionBottom);
-                const minDistance = Math.min(distanceToTop, distanceToBottom);
-
-                if (minDistance < closestSection.distance) {
-                    closestSection = { id, distance: minDistance };
+                const el = document.getElementById(id);
+                if (el) {
+                    const center = el.offsetTop + el.offsetHeight / 2;
+                    const dist = Math.abs(center - middleY);
+                    if (dist < minDist && middleY >= el.offsetTop && middleY <= el.offsetTop + el.offsetHeight) {
+                        minDist = dist;
+                        closestId = id;
+                    }
                 }
             });
 
-            setActiveSection(closestSection.id);
+            setActiveSection(closestId || ''); // Unset if nothing found
         };
 
-        handleScroll(); // Initial check
-        window.addEventListener('scroll', handleScroll);
+        if (location.pathname === '/') {
+            window.addEventListener('scroll', handleScroll);
+
+            if (location.state?.scrollTo) {
+                const target = location.state.scrollTo;
+                setTimeout(() => {
+                    const el = document.getElementById(target);
+                    if (el) {
+                        const offset = -80;
+                        const y = el.getBoundingClientRect().top + window.pageYOffset + offset;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                }, 100);
+            } else {
+                handleScroll(); // Detect initial active section on mount
+            }
+        }
+
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [navItems]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [location.pathname, location.state]);
+
     return (
-        <Navbar expand="lg" fixed="top" className={`glass-navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen && !isScrolled ? 'menu-open' : ''}`} onToggle={(expanded) => setIsMenuOpen(expanded)}>
+        <Navbar expand="lg" fixed="top" className={`glass-navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen && !isScrolled ? 'menu-open' : ''}`}>
             <Container>
-                <Navbar.Brand className="brand-logo" onClick={() => handleNavClick('home')}>
-                    <img src={logo} alt="TechNova" className="logo-img" style={{ cursor: 'pointer' }} width="auto" height="40" loading="lazy" />
+                <Navbar.Brand onClick={() => handleNavClick('home')} style={{ cursor: 'pointer' }}>
+                    <img src={logo} alt="TechNova" className="logo-img" height="40" />
                 </Navbar.Brand>
 
                 <Navbar.Toggle aria-controls="navbar-nav" onClick={() => setIsMenuOpen((prev) => !prev)}>
@@ -82,7 +100,7 @@ const Navbars = () => {
                 <Navbar.Collapse id="navbar-nav">
                     <Nav className="ms-auto align-items-lg-center">
                         {navItems.map((item) => (
-                            <Nav.Link key={item.name} onClick={() => handleNavClick(item.id)} className={`nav-item ${activeSection === item.id ? 'active' : ''}`} as="span">
+                            <Nav.Link key={item.id} onClick={() => handleNavClick(item.id)} className={`nav-item ${activeSection === item.id ? 'active' : ''}`} as="span">
                                 <span className="nav-link-content">{item.name}</span>
                             </Nav.Link>
                         ))}

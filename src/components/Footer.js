@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBFooter, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import './Footer.css';
 import logo from '../assets/images/logo.png';
 export default function Footer() {
