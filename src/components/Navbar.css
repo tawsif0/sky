@@ -16,7 +16,7 @@ html {
 @media (max-width: 991px) {
     .navbar-collapse {
         padding: 20px 0;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.1);
         margin-top: 10px;
     }
 }
@@ -190,7 +190,7 @@ html {
     }
 
     .glass-navbar.menu-open .navbar-collapse {
-        background: rgba(0, 0, 0, 0.336) !important;
+        background: rgba(255, 255, 255, 0.1) !important;
         backdrop-filter: blur(15px);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
         border-radius: 12px;
