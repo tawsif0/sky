@@ -16,7 +16,6 @@ import Error from './pages/Error';
 const App = () => {
     return (
         <>
-            <Navbars />
             <Routes>
                 {/* Route for the Home page */}
                 <Route
@@ -24,6 +23,7 @@ const App = () => {
                     element={
                         <>
                             <section id="home">
+                                <Navbars />
                                 <Hero />
                             </section>
                             <section id="about-us">
@@ -44,6 +44,7 @@ const App = () => {
                             <section id="showcase">
                                 <Shows />
                             </section>
+                            <Footer />
                         </>
                     }
                 />
@@ -51,7 +52,6 @@ const App = () => {
                 {/* Fallback route for invalid URLs (404 Error Page) */}
                 <Route path="*" element={<Error />} />
             </Routes>
-            <Footer />
         </>
     );
 };

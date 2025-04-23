@@ -10,7 +10,7 @@ import './Navbar.css';
 const Navbars = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState('');
+    const [activeSection, setActiveSection] = useState('home');
     const navigate = useNavigate();
     const location = useLocation();
 
