@@ -1,0 +1,139 @@
+/* Showcase.css */
+.showcase-section {
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 2rem;
+    margin-top: -5px;
+    background: linear-gradient(to bottom right, #0e1013, #1a1d22);
+}
+
+.showcase-title-container {
+    padding: 3rem 0 0;
+}
+
+.showcase-title {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    line-height: 1.1;
+    position: relative;
+    z-index: 10;
+    letter-spacing: 0.5px;
+    color: #fff; /* Plain white color */
+}
+
+.showcase-card-container {
+    padding: 4rem 0;
+}
+
+.showcase-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(145deg, #181b20, #0d0f12);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.02), 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border 0.3s ease;
+    backdrop-filter: blur(6px);
+}
+
+.showcase-card:hover {
+    transform: scale(0.94);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.04), 0 0 12px rgba(0, 255, 255, 0.08);
+}
+
+.showcase-img-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+    filter: brightness(0.95);
+}
+
+.showcase-card:hover .showcase-img {
+    filter: brightness(0.85);
+}
+
+.bottom-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    padding: 1.5rem;
+    color: white;
+    text-align: left;
+    z-index: 3;
+}
+
+.bottom-title h5 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.showcase-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    z-index: 4;
+    border-radius: 20px;
+}
+
+.showcase-hover-overlay h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.showcase-card:hover .showcase-hover-overlay {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .showcase-title {
+        font-size: 2.25rem;
+        padding: 4rem 0;
+    }
+
+    .showcase-hover-overlay h4 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase-title {
+        font-size: 2rem;
+        padding: 3rem 0;
+    }
+    .bottom-title h5 {
+        font-size: 15px;
+    }
+    .showcase-section {
+        padding: 60px 1rem;
+    }
+    .showcase-title-container {
+        padding: 0;
+    }
+    .showcase-hover-overlay h4 {
+        font-size: 18px;
+    }
+}

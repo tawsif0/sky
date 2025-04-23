@@ -170,37 +170,32 @@
     .section-products-subtitle {
         font-size: 2rem;
     }
-
-    .products-grid {
-        gap: 2rem;
-    }
 }
-
 @media (max-width: 576px) {
     .products-card {
         aspect-ratio: 3 / 4;
     }
 
     .product-name {
-        font-size: 1.4rem;
-        left: 15px;
-        top: 15px;
+        font-size: 13px; /* smaller title */
+        left: 10px;
+        top: 10px;
     }
 
     .section-products-title {
-        font-size: 2.6rem;
+        font-size: 2.2rem; /* reduced main title size */
     }
 
     .section-products-subtitle {
-        font-size: 1.6rem;
+        font-size: 1.3rem; /* reduced subtitle */
     }
 
     .brand-logo-img {
-        height: 26px;
+        height: 15px; /* smaller brand logos */
     }
 
     .brand-logos {
-        gap: 10px;
-        padding: 10px 12px;
+        gap: 6px; /* tighter spacing */
+        padding: 8px 10px; /* smaller padding */
     }
 }

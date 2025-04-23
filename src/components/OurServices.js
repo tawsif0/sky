@@ -42,12 +42,11 @@ const OurServices = () => {
             <div className="container">
                 <div className="row justify-content-center">
                     {services.map((service, index) => (
-                        <div className="col-md-4 mb-4 d-flex" key={index}>
+                        <div key={index} className="col-6 col-md-6 col-lg-4 d-flex mb-4">
                             <div className="service-card w-100 position-relative">
                                 <div className="service-image-wrapper position-relative">
                                     <img src={service.image} alt={service.title} />
                                 </div>
-
                                 <div className="title-container position-relative">
                                     <div className="title-glow"></div>
                                     <h5 className="service-title">{service.title}</h5>

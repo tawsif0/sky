@@ -1,28 +1,65 @@
 /* eslint-disable max-lines */
 import React from 'react';
+import { Routes, Route } from 'react-router-dom'; // Import Routes, Route, and BrowserRouter
 import './index.css';
 import Navbars from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/About';
 import Product from './components/Products';
 import OurServices from './components/OurServices';
+import WhyChooseUs from './components/WhyChooseUs';
+import Clientele from './components/Clientele';
+import Shows from './components/Show';
+import Footer from './components/Footer';
+
+const ErrorPage = () => {
+    return (
+        <div>
+            <h2>404 - Page Not Found</h2>
+            <p>The page you are looking for does not exist.</p>
+        </div>
+    );
+};
 
 const App = () => {
     return (
         <>
-            <section id="home">
-                <Navbars />
-                <Hero />
-            </section>
-            <section id="about-us">
-                <AboutSection />
-            </section>
-            <section id="products">
-                <Product />
-            </section>
-            <section id="services">
-                <OurServices />
-            </section>
+            <Routes>
+                {/* Route for the Home page */}
+                <Route
+                    path="/"
+                    element={
+                        <>
+                            <section id="home">
+                                <Navbars />
+                                <Hero />
+                            </section>
+                            <section id="about-us">
+                                <AboutSection />
+                            </section>
+                            <section id="products">
+                                <Product />
+                            </section>
+                            <section id="services">
+                                <OurServices />
+                            </section>
+                            <section id="why-choose-us">
+                                <WhyChooseUs />
+                            </section>
+                            <section id="clientele">
+                                <Clientele />
+                            </section>
+                            <section id="showcase">
+                                <Shows />
+                            </section>
+                            <Footer />
+                        </>
+                    }
+                />
+
+                {/* Fallback route for invalid URLs (404 Error Page) */}
+                <Route path="*" element={<ErrorPage />} />
+            </Routes>
         </>
     );
 };

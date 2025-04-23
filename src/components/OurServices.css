@@ -30,7 +30,6 @@
     }
 }
 
-/* Animated underline */
 .futuristic-title::after {
     content: '';
     position: absolute;
@@ -145,21 +144,9 @@
     text-shadow: 0 0 15px rgba(75, 207, 250, 0.4);
 }
 
-/* Animation */
-@keyframes pulse {
-    0% {
-        opacity: 0.3;
-    }
-    50% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 0.3;
-    }
-}
+/* Responsive Adjustments */
 
-/* Responsive Design */
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
     .futuristic-title {
         font-size: 2.9rem;
     }
@@ -174,9 +161,9 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
     .futuristic-title {
-        font-size: 2.77rem;
+        font-size: 2.6rem;
         margin-bottom: 40px;
     }
 
@@ -194,13 +181,13 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 575.98px) {
     .our-services-section {
-        padding: 60px 0;
+        padding: 60px 1rem;
     }
 
     .futuristic-title {
-        font-size: 2.75rem;
+        font-size: 2.4rem;
     }
 
     .title-container {

@@ -5,7 +5,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Products.css';
 
-// Product and accessory images...
 import batteryPackImg from '../assets/Main-Products/BATTERY-PACK.jpg';
 import upsOfflineImg from '../assets/Main-Products/OFFLINE-UPS.jpg';
 import upsOnlineImg from '../assets/Main-Products/ONLINE-UPS.jpg';
@@ -26,7 +25,6 @@ import railKitImg from '../assets/Accessories/RAIL-KIT.jpg';
 import tvssImg from '../assets/Accessories/TVSS.jpg';
 import smartHomeImg from '../assets/Accessories/SMART-HOME.jpg';
 
-// Brand logos...
 import diamecLogo from '../assets/Brands/DIAMEC.png';
 import longLogo from '../assets/Brands/LONG.jpg';
 import leochLogo from '../assets/Brands/LEOCH.png';
@@ -102,6 +100,7 @@ const Products = [
         image: generatorImg
     }
 ];
+
 const accessories = [
     {
         title: 'RACK',
@@ -191,7 +190,7 @@ const Product = () => {
                 <h2 className="section-products-subtitle">Main Products</h2>
                 <Row className="g-4 justify-content-center">
                     {Products.map((product, idx) => (
-                        <Col key={idx} md={4} className="products-card-col">
+                        <Col key={idx} lg={4} md={4} sm={6} xs={6} className="products-card-col">
                             <div className="products-card" ref={addToRefs}>
                                 <img src={product.image} alt={product.title} className="card-img" />
                                 <div className="card-overlay"></div>
@@ -213,7 +212,7 @@ const Product = () => {
                 <h2 className="section-products-subtitle">Accessories</h2>
                 <Row className="g-4 justify-content-center">
                     {accessories.map((product, idx) => (
-                        <Col key={idx} md={4} className="products-card-col">
+                        <Col key={idx} lg={4} md={4} sm={6} xs={6} className="products-card-col">
                             <div className="products-card">
                                 <img src={product.image} alt={product.title} className="card-img" />
                                 <div className="card-overlay"></div>
