@@ -15,9 +15,28 @@ html {
 /* Mobile menu adjustments */
 @media (max-width: 991px) {
     .navbar-collapse {
+        position: relative;
         padding: 20px 0;
         background: rgba(255, 255, 255, 0.1);
-        margin-top: 10px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+    .navbar-collapse.scrolled {
+        position: relative;
+        padding: 20px 0;
+        background: transparent;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+    .navbar-collapse::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 10px solid;
+        border-color: transparent transparent rgba(255, 255, 255, 0.1) transparent;
+        top: -20px;
+        right: 29px; /* adjust to control how far from the right */
     }
 }
 .glass-navbar {
