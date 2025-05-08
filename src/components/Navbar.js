@@ -20,8 +20,8 @@ const Navbars = () => {
         { name: 'Products', id: 'products' },
         { name: 'Services', id: 'services' },
         { name: 'Why Choose Us', id: 'why-choose-us' },
-        { name: 'Clientele', id: 'clientele' },
-        { name: 'Show Case', id: 'showcase' }
+        { name: 'Clientele', id: 'clientele' }
+        // { name: 'Show Case', id: 'showcase' }
     ];
 
     const handleNavClick = (id) => {

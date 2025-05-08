@@ -15,6 +15,8 @@ import comfortAcImg from '../assets/Main-Products/COMFORT-AC.jpg';
 import precisionAcImg from '../assets/Main-Products/PRECISION-AC.jpg';
 import powerCableImg from '../assets/Main-Products/INDUSTRIAL-POWER-CABLE.jpg';
 import cctvImg from '../assets/Main-Products/CCTV.jpg';
+import Fire from '../assets/products/Fire.png';
+import Avr from '../assets/products/AVR.png';
 
 import rackImg from '../assets/Accessories/RACK.jpg';
 import kvmImg from '../assets/Accessories/KVM.jpg';
@@ -45,7 +47,11 @@ import generalLogo from '../assets/Brands/GENERAL.png';
 import bbsLogo from '../assets/Brands/BBS.png';
 import partexLogo from '../assets/Brands/PARTEX.png';
 import vivancoLogo from '../assets/Brands/VIVANCO.png';
-
+import Luminus from '../assets/Brands/LUMINUS.png';
+import Scheneider from '../assets/Brands/Scheneider.png';
+import Vcon from '../assets/Brands/Vcon.png';
+import Sako from '../assets/Brands/Sako.png';
+import Mingch from '../assets/Brands/Mingch.png';
 gsap.registerPlugin(ScrollTrigger);
 
 const Products = [
@@ -71,7 +77,7 @@ const Products = [
     },
     {
         title: 'IPS',
-        brands: [rahimafroozLogo, singerLogo],
+        brands: [rahimafroozLogo, singerLogo, Luminus],
         image: ipsImg
     },
     {
@@ -81,7 +87,7 @@ const Products = [
     },
     {
         title: 'PRECISION AC',
-        brands: [vertivLogo],
+        brands: [vertivLogo, Scheneider],
         image: precisionAcImg
     },
     {
@@ -95,9 +101,19 @@ const Products = [
         image: cctvImg
     },
     {
+        title: 'AVR',
+        brands: [Vcon, Sako, Mingch],
+        image: Avr
+    },
+    {
         title: 'GENERATOR',
         brands: [],
         image: generatorImg
+    },
+    {
+        title: 'FIRE DETECTION & CONTROLLING SYSTEM',
+        brands: [],
+        image: Fire
     }
 ];
 
@@ -212,18 +228,18 @@ const Product = () => {
                 <h2 className="section-products-subtitle">Accessories</h2>
                 <Row className="g-4 justify-content-center">
                     {accessories.map((product, idx) => (
-                        <Col key={idx} lg={4} md={4} sm={6} xs={6} className="products-card-col">
+                        <Col key={idx} lg={3} md={4} sm={6} xs={6} className="products-card-col">
                             <div className="products-card">
                                 <img src={product.image} alt={product.title} className="card-img" />
                                 <div className="card-overlay"></div>
-                                <div className="product-name">{product.title}</div>
-                                {product.brands.length > 0 && (
-                                    <div className="brand-logos">
-                                        {product.brands.map((brandLogo, index) => (
-                                            <img key={index} src={brandLogo} alt={`Brand ${index}`} className="brand-logo-img" />
-                                        ))}
-                                    </div>
-                                )}
+                                <div className="product-names">{product.title}</div>
+                                {/* {product.brands.length > 0 && (
+                             <div className="brand-logos">
+                                 {product.brands.map((brandLogo, index) => (
+                                     <img key={index} src={brandLogo} alt={`Brand ${index}`} className="brand-logo-img" />
+                                 ))}
+                             </div>
+                         )} */}
                             </div>
                         </Col>
                     ))}

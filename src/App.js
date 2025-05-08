@@ -9,7 +9,7 @@ import Product from './components/Products';
 import OurServices from './components/OurServices';
 import WhyChooseUs from './components/WhyChooseUs';
 import Clientele from './components/Clientele';
-import Shows from './components/Show';
+// import Shows from './components/Show';
 import Footer from './components/Footer';
 import Error from './pages/Error';
 
@@ -41,9 +41,9 @@ const App = () => {
                             <section id="clientele">
                                 <Clientele />
                             </section>
-                            <section id="showcase">
+                            {/* <section id="showcase">
                                 <Shows />
-                            </section>
+                            </section> */}
                             <Footer />
                         </>
                     }

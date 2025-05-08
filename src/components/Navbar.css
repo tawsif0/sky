@@ -21,13 +21,7 @@ html {
         margin-top: 20px;
         border-radius: 10px;
     }
-    .navbar-collapse.scrolled {
-        position: relative;
-        padding: 20px 0;
-        background: transparent;
-        margin-top: 20px;
-        border-radius: 10px;
-    }
+
     .navbar-collapse::before {
         content: '';
         position: absolute;

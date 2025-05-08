@@ -114,11 +114,22 @@
     color: #fff;
     transition: opacity 0.3s ease;
 }
-
+.product-names {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    z-index: 2;
+    color: #fff;
+    transition: opacity 0.3s ease;
+}
 .products-card:hover .product-name {
     opacity: 0;
 }
-
+.products-card:hover .product-names {
+    opacity: 0;
+}
 .brand-logos {
     position: absolute;
     bottom: 0;
@@ -166,7 +177,9 @@
     .product-name {
         font-size: 1.6rem;
     }
-
+    .product-names {
+        font-size: 1.3rem;
+    }
     .section-products-subtitle {
         font-size: 2rem;
     }
@@ -181,7 +194,11 @@
         left: 10px;
         top: 10px;
     }
-
+    .product-names {
+        font-size: 12px; /* smaller title */
+        left: 10px;
+        top: 10px;
+    }
     .section-products-title {
         font-size: 2.2rem; /* reduced main title size */
     }

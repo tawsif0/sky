@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './About.css';
 import imgAbout from '../assets/images/about.png';
-
+import khaja from '../assets/images/H.png';
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = () => {
@@ -83,6 +83,16 @@ const AboutSection = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="container d-flex flex-column align-items-center justify-content-center" style={{ padding: '6rem 2rem 3rem 2rem' }}>
+                <h2 className="mb-4 section-title">MEMBERS</h2>
+                <div className="image-wrapper position-relative">
+                    <img src={khaja} alt="Our Team" className="about-image img-fluid rounded-4" style={{ maxWidth: '350px' }} />
+                </div>
+                <div className="text-center" style={{ fontSize: '1.25rem' }}>
+                    <h4>H M Khaja Uddin</h4>
+                    <p>Legal Advisor</p>
                 </div>
             </div>
         </section>
