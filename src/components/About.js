@@ -47,7 +47,7 @@ const AboutSection = () => {
                     {/* Image Column */}
                     <div className="col-lg-6" ref={imageRef}>
                         <div className="image-wrapper position-relative">
-                            <img src={imgAbout} alt="Our Team" className="about-image img-fluid rounded-4" />
+                            <img src={imgAbout} alt="Our Team" className="about-image img-fluid rounded-4" loading="lazy" />
                             <div className="gradient-border"></div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ const AboutSection = () => {
             <div className="container d-flex flex-column align-items-center justify-content-center" style={{ padding: '6rem 2rem 3rem 2rem' }}>
                 <h2 className="mb-4 section-title">MEMBERS</h2>
                 <div className="image-wrapper position-relative">
-                    <img src={khaja} alt="Our Team" className="about-image img-fluid rounded-4" style={{ maxWidth: '350px' }} />
+                    <img src={khaja} alt="Our Team" className="about-image img-fluid rounded-4" loading="lazy" style={{ maxWidth: '250px' }} />
                 </div>
                 <div className="text-center" style={{ fontSize: '1.25rem' }}>
                     <h4>H M Khaja Uddin</h4>

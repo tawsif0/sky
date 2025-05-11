@@ -45,7 +45,7 @@ const OurServices = () => {
                         <div key={index} className="col-6 col-md-6 col-lg-4 d-flex mb-4">
                             <div className="service-card w-100 position-relative">
                                 <div className="service-image-wrapper position-relative">
-                                    <img src={service.image} alt={service.title} />
+                                    <img src={service.image} alt={service.title} loading="lazy" />
                                 </div>
                                 <div className="title-container position-relative">
                                     <div className="title-glow"></div>

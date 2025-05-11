@@ -115,14 +115,14 @@
     transition: opacity 0.3s ease;
 }
 .product-names {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 1.3rem;
-    font-weight: 600;
-    z-index: 2;
+    padding: 5px 8px;
+    font-size: 16px;
+    font-weight: bold;
     color: #fff;
-    transition: opacity 0.3s ease;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 10px; /* Space between image and text */
+    transition: background-color 0.3s ease;
 }
 .products-card:hover .product-name {
     opacity: 0;
@@ -195,8 +195,7 @@
         top: 10px;
     }
     .product-names {
-        font-size: 12px; /* smaller title */
-        left: 10px;
+        font-size: 8px; /* smaller title */
         top: 10px;
     }
     .section-products-title {

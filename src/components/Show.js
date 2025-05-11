@@ -47,7 +47,7 @@ const Shows = () => {
                         <Col key={idx} xl={3} lg={4} md={6} sm={6} xs={6} className="showcase-card-col">
                             <div className="showcase-card">
                                 <div className="showcase-img-container">
-                                    <img src={product.image} alt={product.title} className="showcase-img" />
+                                    <img src={product.image} alt={product.title} className="showcase-img" loading="lazy" />
                                     <div className="bottom-title">
                                         <h5>{product.title}</h5>
                                     </div>

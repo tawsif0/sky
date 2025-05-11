@@ -149,7 +149,7 @@ const accessories = [
         image: railKitImg
     },
     {
-        title: 'TRANSIENT VOLTAGE SURGE SUPPRESSOR(TVSS)',
+        title: 'TRANSIENT VOLTAGE SURGE SUPPRESSOR (TVSS)',
         brands: [apcLogo],
         image: tvssImg
     },
@@ -208,13 +208,13 @@ const Product = () => {
                     {Products.map((product, idx) => (
                         <Col key={idx} lg={4} md={4} sm={6} xs={6} className="products-card-col">
                             <div className="products-card" ref={addToRefs}>
-                                <img src={product.image} alt={product.title} className="card-img" />
+                                <img src={product.image} alt={product.title} className="card-img" loading="lazy" />
                                 <div className="card-overlay"></div>
                                 <div className="product-name">{product.title}</div>
                                 {product.brands.length > 0 && (
                                     <div className="brand-logos">
                                         {product.brands.map((brandLogo, index) => (
-                                            <img key={index} src={brandLogo} alt={`Brand ${index}`} className="brand-logo-img" />
+                                            <img key={index} src={brandLogo} alt={`Brand ${index}`} className="brand-logo-img" loading="lazy" />
                                         ))}
                                     </div>
                                 )}
@@ -228,11 +228,11 @@ const Product = () => {
                 <h2 className="section-products-subtitle">Accessories</h2>
                 <Row className="g-4 justify-content-center">
                     {accessories.map((product, idx) => (
-                        <Col key={idx} lg={3} md={4} sm={6} xs={6} className="products-card-col">
+                        <Col key={idx} lg={3} md={4} sm={6} xs={4} className="products-card-col">
                             <div className="products-card">
-                                <img src={product.image} alt={product.title} className="card-img" />
+                                <img src={product.image} alt={product.title} className="card-img" loading="lazy" />
                                 <div className="card-overlay"></div>
-                                <div className="product-names">{product.title}</div>
+
                                 {/* {product.brands.length > 0 && (
                              <div className="brand-logos">
                                  {product.brands.map((brandLogo, index) => (
@@ -241,6 +241,7 @@ const Product = () => {
                              </div>
                          )} */}
                             </div>
+                            <div className="product-names">{product.title}</div>
                         </Col>
                     ))}
                 </Row>

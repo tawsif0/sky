@@ -9,13 +9,13 @@ const heroData = [
         type: '',
         title: 'SKY WAVE ENGINEERING',
         location: 'Empowering Innovation, Energizing Progress',
-        image: require('../assets/images/hero2.png')
+        image: require('../assets/images/hero2.webp')
     },
     {
         type: 'ULTIMATE IT SERVICE',
         title: 'Excellent IT services for your success',
         location: 'Perferendis repudandae fugia rchitecto The Wonderful Of Bangladesh',
-        image: require('../assets/images/hero1.png')
+        image: require('../assets/images/hero1.webp')
     },
     {
         type: '',
@@ -156,11 +156,47 @@ const Hero = () => {
         });
     }, [displayedIndex]);
 
+    // Lazy Load Background Images with IntersectionObserver
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const imageUrl = el.getAttribute('data-bg'); // Get background URL from data attribute
+                    el.style.backgroundImage = `url(${imageUrl})`; // Set the background image
+                    el.classList.add('loaded'); // Optional: Add a class when loaded
+                    observer.unobserve(el); // Stop observing
+                }
+            });
+        });
+
+        // Observe the images
+        if (currentImageRef.current) observer.observe(currentImageRef.current);
+        if (nextImageRef.current) observer.observe(nextImageRef.current);
+
+        // Cleanup on unmount
+        return () => {
+            if (currentImageRef.current) observer.unobserve(currentImageRef.current);
+            if (nextImageRef.current) observer.unobserve(nextImageRef.current);
+        };
+    }, []);
+
     return (
         <section className="hero-section">
             <div className="hero-overlay" />
-            <div className="hero-image current" ref={currentImageRef} />
-            <div className="hero-image next" ref={nextImageRef} />
+            {/* Hero Image 1 */}
+            <div
+                className="hero-image current"
+                ref={currentImageRef}
+                data-bg={heroData[current].image} // Store the background image URL in data-bg
+            />
+
+            {/* Hero Image 2 */}
+            <div
+                className="hero-image next"
+                ref={nextImageRef}
+                data-bg={heroData[(current + 1) % heroData.length].image} // Store the background image URL in data-bg
+            />
 
             <div className="hero-content container">
                 <div className="hero-details">
