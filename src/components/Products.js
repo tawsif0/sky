@@ -142,7 +142,9 @@ const accessories = [
         title: 'POWER DISTRIBUTION UNIT (PDU)',
         brands: [apcLogo],
         image: pduImg
-    },
+    }
+];
+const acc = [
     {
         title: 'RAIL KIT',
         brands: [apcLogo],
@@ -159,7 +161,6 @@ const accessories = [
         image: smartHomeImg
     }
 ];
-
 const Product = () => {
     const sectionRef = useRef(null);
     const productsCardsRef = useRef([]);
@@ -226,9 +227,56 @@ const Product = () => {
 
             <Container className="products-card-container py-5">
                 <h2 className="section-products-subtitle">Accessories</h2>
-                <Row className="g-4 justify-content-center">
+                <Row className="g-4 justify-content-center desktop">
                     {accessories.map((product, idx) => (
-                        <Col key={idx} lg={3} md={4} sm={6} xs={4} className="products-card-col">
+                        <Col key={idx} lg={2} md={3} sm={4} xs={4} className="products-card-col">
+                            <div className="products-card">
+                                <img src={product.image} alt={product.title} className="card-img" loading="lazy" />
+                                <div className="card-overlay"></div>
+
+                                {/* {product.brands.length > 0 && (
+                             <div className="brand-logos">
+                                 {product.brands.map((brandLogo, index) => (
+                                     <img key={index} src={brandLogo} alt={`Brand ${index}`} className="brand-logo-img" />
+                                 ))}
+                             </div>
+                         )} */}
+                            </div>
+                            <div className="product-names">{product.title}</div>
+                        </Col>
+                    ))}
+                </Row>
+                <Row className="g-4 justify-content-center mt-1 desktop">
+                    {acc.map((product, idx) => (
+                        <Col key={idx} lg={2} md={3} sm={4} xs={4} className="products-card-col">
+                            <div className="products-card">
+                                <img src={product.image} alt={product.title} className="card-img" loading="lazy" />
+                                <div className="card-overlay"></div>
+                            </div>
+                            <div className="product-names">{product.title}</div>
+                        </Col>
+                    ))}
+                </Row>
+                <Row className="g-4 justify-content-center mobile">
+                    {accessories.map((product, idx) => (
+                        <Col key={idx} lg={2} md={3} sm={4} xs={4} className="products-card-col">
+                            <div className="products-card">
+                                <img src={product.image} alt={product.title} className="card-img" loading="lazy" />
+                                <div className="card-overlay"></div>
+
+                                {/* {product.brands.length > 0 && (
+                             <div className="brand-logos">
+                                 {product.brands.map((brandLogo, index) => (
+                                     <img key={index} src={brandLogo} alt={`Brand ${index}`} className="brand-logo-img" />
+                                 ))}
+                             </div>
+                         )} */}
+                            </div>
+                            <div className="product-names">{product.title}</div>
+                        </Col>
+                    ))}
+                    {acc.map((product, idx) => (
+                        <Col key={idx} lg={2} md={3} sm={4} xs={4} className="products-card-col">
                             <div className="products-card">
                                 <img src={product.image} alt={product.title} className="card-img" loading="lazy" />
                                 <div className="card-overlay"></div>

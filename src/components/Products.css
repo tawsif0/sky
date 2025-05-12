@@ -116,7 +116,7 @@
 }
 .product-names {
     padding: 5px 8px;
-    font-size: 16px;
+    font-size: 11px;
     font-weight: bold;
     color: #fff;
     text-align: center;
@@ -167,7 +167,20 @@
     background: rgba(255, 255, 255, 0.4);
     z-index: 1;
 }
-
+.desktop {
+    display: flex !important;
+}
+.mobile {
+    display: none !important;
+}
+@media (max-width: 1023px) {
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: flex !important;
+    }
+}
 /* Responsive Adjustments */
 @media (max-width: 992px) {
     .products-card {
@@ -175,10 +188,10 @@
     }
 
     .product-name {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
     .product-names {
-        font-size: 1.3rem;
+        font-size: 0.9rem;
     }
     .section-products-subtitle {
         font-size: 2rem;
